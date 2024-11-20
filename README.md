@@ -1,6 +1,6 @@
-# Dine On Campus
+# Travel Planner
+The Travel Planner is a comprehensive web application designed to help users effortlessly manage and plan their trips by providing tailored itineraries, destination suggestions, and seamless integration with booking services. With features like interactive maps, trip management, and personalized recommendations, it enhances the travel experience from start to finish.
 
-Dine On Campus application designed to minimize wait times during busy periods at the campus dining facilities. By providing an intuitive interface, the app enables users to easily explore menu options, submit orders, and tailor their meals to their dietary needs, ensuring a seamless and expedited dining experience.
 
 # Getting Started with Create React App
 
