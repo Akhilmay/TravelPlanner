@@ -100,7 +100,13 @@ app.get('/api/login', async (req, res) => {
   }
 })
 
-
+app.get('/api/get/filghtdetails', async (req, res) => {
+  const queryParam = req.query.DepartureDate;
+  const promises = [Menu.find({ DepartureDate: '2024-12-01' })]
+  const [result] = await Promise.all(promises);
+    return res.json(data);
+  }
+)
 app.get('/api/get/userdetails', async (req, res) => {
   const queryParam = req.query.userId;
   const promises = [Admins.find({ _id: new ObjectId(queryParam) }), Users.find({ _id: new ObjectId(queryParam) })]

@@ -22,6 +22,7 @@ const UserHome = () => {
   const [fromdate, setfromDate] = useState('');
   const [todate, settoDate] = useState('');
   const [location, setLocation] = useState('');
+  const [Startlocation, setStartlocation] = useState('');
   const [recommendations, setRecommendations] = useState([]);
 
   // Function to provide recommended places with local images based on location
@@ -57,15 +58,16 @@ const UserHome = () => {
   };
 
   const addItinerary = () => {
-    if (todate && fromdate && location) {
+    if (fromdate && location) {
       setItineraries([...itineraries, { todate, fromdate, location }]);
       setRecommendations(getRecommendations(location)); // Set recommendations with images
-      settoDate(''); // Clear the date input
-      setfromDate(''); // Clear the date input
-      setLocation(''); // Clear the location input
     } else {
       alert('Please fill in both date and location.');
     }
+  };
+
+  const handlenext = () => {
+    window.location.href = "./routeHome";
   };
 
   return (
@@ -74,25 +76,25 @@ const UserHome = () => {
       
       {/* Form container with top-centered styling */}
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', marginTop: '20px' }}>
-        <h4>From Date</h4><input 
+        <h4>Trip Start Date</h4><input 
           type="date" 
           value={fromdate} 
           onChange={(e) => setfromDate(e.target.value)} 
           placeholder="Select From Date" 
           style={{ padding: '8px', fontSize: '16px', width: '200px' }}
         />
-        <h4>To Date</h4><input 
-          type="date" 
-          value={todate} 
-          onChange={(e) => settoDate(e.target.value)} 
-          placeholder="Select To Date" 
+        <h4>Current Location</h4><input 
+          type="text" 
+          value={Startlocation} 
+          onChange={(e) => setStartlocation(e.target.value)} 
+          placeholder="Enter Current Location" 
           style={{ padding: '8px', fontSize: '16px', width: '200px' }}
         />
-        <input 
+        <h4>Enter Destination Location</h4><input 
           type="text" 
           value={location} 
           onChange={(e) => setLocation(e.target.value)} 
-          placeholder="Enter Location" 
+          placeholder="Enter Destination Location" 
           style={{ padding: '8px', fontSize: '16px', width: '200px' }}
         />
         
@@ -122,6 +124,7 @@ const UserHome = () => {
               </div>
             ))}
           </div>
+          <button onClick={handlenext} style={{ padding: '10px 20px', fontSize: '16px', cursor: 'pointer' }}>Next</button>
         </div>
       )}
     </div>
