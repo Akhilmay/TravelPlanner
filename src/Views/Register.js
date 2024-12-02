@@ -56,20 +56,9 @@ const RegisterPage = () => {
         body: JSON.stringify(req),
       });
       if (response.ok) {
-        const data = await response.json();
-        if (true) {
-          const req = { userId: data.insertedId, }
-          const response = await fetch('http://localhost:3001/api/add/Wallet', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(req),
-          });
           if (response.ok) {
             window.location.href = "./login";
           }
-        }
         else {
           window.location.href = "./login";
         }

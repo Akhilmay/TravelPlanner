@@ -28,6 +28,7 @@ const FlightHotelSearch = () => {
   // Handle the search button click
   const handleSearch = () => {
     searchHotels();
+    window.location.href ="./MapHome"
   };
 
   return (

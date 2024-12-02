@@ -101,10 +101,8 @@ app.get('/api/login', async (req, res) => {
 })
 
 app.get('/api/get/filghtdetails', async (req, res) => {
-  const queryParam = req.query.DepartureDate;
-  const promises = [Menu.find({ DepartureDate: '2024-12-01' })]
-  const [result] = await Promise.all(promises);
-    return res.json(data);
+  const promises = await Menu.find({});
+    return res.json(promises);
   }
 )
 app.get('/api/get/userdetails', async (req, res) => {

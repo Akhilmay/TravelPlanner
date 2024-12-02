@@ -4,7 +4,8 @@ import Login from './Views/login.js';
 import Register from './Views/Register.js';
 import UserHome from './Views/UserHome.js';
 import RouteHome from './Views/RouteHome.js';
-import HotelHome from './Views/HotelHome.js'
+import HotelHome from './Views/HotelHome.js';
+import MapHome from './Views/MapHome.js';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <Route path="/userHome" element={<UserHome />} />
     <Route path="/routeHome" element={<RouteHome />} />
     <Route path="/HotelHome" element={<HotelHome />} />
+    <Route path="/MapHome" element={<MapHome />} />
   </Routes>
   </div> 
   );

@@ -59,6 +59,13 @@ const UserHome = () => {
 
   const addItinerary = () => {
     if (fromdate && location) {
+      const today = new Date();
+      const selectedDate = new Date(fromdate);
+
+      if (selectedDate <= today) {
+      alert('The trip start date must be in the future.');
+      return;
+      }
       setItineraries([...itineraries, { todate, fromdate, location }]);
       setRecommendations(getRecommendations(location)); // Set recommendations with images
     } else {
@@ -67,7 +74,7 @@ const UserHome = () => {
   };
 
   const handlenext = () => {
-    window.location.href = "./routeHome";
+    window.location.href = "./MapHome";
   };
 
   return (
@@ -105,7 +112,7 @@ const UserHome = () => {
       <ul style={{ listStyleType: 'none', padding: '0', marginTop: '20px', textAlign: 'center' }}>
         {itineraries.map((trip, index) => (
           <li key={index}>
-            <strong>From Date:</strong> {trip.fromdate},<strong>To Date:</strong> {trip.todate}, <strong>Location:</strong> {trip.location}
+            <strong>Trip Date:</strong> {trip.fromdate}, <strong>Location:</strong> {trip.location}
           </li>
         ))}
       </ul>
